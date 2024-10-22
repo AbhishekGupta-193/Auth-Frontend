@@ -7,6 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { SignInService } from './sharedData/sign-in.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,7 +20,7 @@ export class SignInComponent {
   mobile_no: string = '';
   password: string = '';
 
-  constructor(private formbuilder: FormBuilder, private http: HttpService) {
+  constructor(private formbuilder: FormBuilder, private http: HttpService, private signinService:SignInService,private router:Router) {
     this.signInForm = formbuilder.group({
       mobile_no: ['', Validators.required],
       password: ['', Validators.required],
@@ -36,6 +38,9 @@ export class SignInComponent {
     this.http.signIn("/loginUser",credentials).subscribe({
       next:(res:any)=>{
         console.log("login successful : ",res);
+        this.signinService.updateUser(res);
+        this.router.navigate(['/dashboard']);
+        
       },
       error:(err:string)=>{
         console.log("error in login : ",err);

@@ -8,12 +8,14 @@ import { SignUpComponent } from './Authentication/sign-up/sign-up.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './Application/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
