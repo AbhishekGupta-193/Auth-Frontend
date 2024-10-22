@@ -38,13 +38,20 @@ export class SignInComponent {
     this.http.signIn("/loginUser",credentials).subscribe({
       next:(res:any)=>{
         console.log("login successful : ",res);
+        alert("Congratulations! You are logged in.")
         this.signinService.updateUser(res);
         this.router.navigate(['/dashboard']);
         
       },
       error:(err:string)=>{
+        alert("Oops! Invalid Credentials.")
         console.log("error in login : ",err);
       }
     })
+
+  }
+  
+  notImplementedYet(){
+    alert("Have patience! Functionality is not implemented yet.")
   }
 }

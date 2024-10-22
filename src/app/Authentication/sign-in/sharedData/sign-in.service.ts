@@ -13,4 +13,8 @@ export class SignInService {
     this.User.next(user);
   }
 
+  //for auth guard 
+  get currentUserValue():any{
+    return this.User.value;
+  }
 }

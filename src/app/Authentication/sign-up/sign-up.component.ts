@@ -35,11 +35,17 @@ export class SignUpComponent {
       this.http.SignUp("/registerUser",payload).subscribe({
         next:(res:any)=>{
           console.log("Signup successful : ",res);
+          alert("Congratulations! Sign Up is successful.")
           this.router.navigate(['/']);
         },
         error:(err:any)=>{
+          alert("Oops! Sign Up failed.")
           console.log("Signup Failed : ",err);
         }
       })
+    }
+
+    notImplementedYet(){
+      alert("Have patience! Functionality is not implemented yet.")
     }
 }
